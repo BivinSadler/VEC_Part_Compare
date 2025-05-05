@@ -26,6 +26,7 @@ def get_part_comparison(part1, part2):
     - Whether {part2} is a suitable replacement for {part1}
     - Any differences in functionality or compatibility
     - A final recommendation
+    - When rendering a final recommendation, include the phrase "these parts are suitable for substitution" if you believe they are suitable for recommendation. If the are deemed not suitable for substitution then include the phrase "these parts are not suitable for substitution". If you are not sure then don't include either of those statements include the phrase "more review is needed".   
     """
 
     try:
@@ -40,9 +41,9 @@ def get_part_comparison(part1, part2):
 
 def evaluate_recommendation(text):
     text = text.lower()
-    if "suitable replacement" in text or "can be used as a substitute" in text:
+    if "these parts are suitable for substitution" in text or "can be used as a substitute" in text:
         return "green", "✅ Recommended substitute"
-    elif "not recommended" in text or "cannot be used" in text:
+    elif "these parts are not suitable for substitution" in text or "cannot be used" in text:
         return "red", "❌ Not a valid substitute"
     else:
         return "yellow", "⚠️ Needs further review"
