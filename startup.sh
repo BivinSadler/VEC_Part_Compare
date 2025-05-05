@@ -7,4 +7,3 @@ echo "Python version: $(python --version)"
 
 # Run the Streamlit app on the port Azure provides
 streamlit run VEC.py --server.port $PORT --server.enableCORS false
-
