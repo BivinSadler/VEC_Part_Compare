@@ -36,16 +36,18 @@ def compare_parts(part1_info, part2_info):
     prompt = f"""
     Compare the following two hardware parts for compatibility:
 
+    Create a table with two columns, one for each part.  The rows should be important specifications relevant to the parts. 
+    
+    Based on the specifications, use cases, and features, determine whether these parts:
+    A. {{Green}} They are a close match and can be substituted for one another
+    B. {{Red}} They are significantly different and are not able to be substituted
+    C. {{Yellow}} It is tough to tell and further investigation is needed
+
     Part 1 Description:
     {part1_info}
 
     Part 2 Description:
     {part2_info}
-
-    Based on the specifications, use cases, and features, determine whether these parts:
-    A. {{Green}} They are a close match and can be substituted for one another
-    B. {{Red}} They are significantly different and are not able to be substituted
-    C. {{Yellow}} It is tough to tell and further investigation is needed
 
     Provide a short summary and clearly include either {{Green}}, {{Red}}, or {{Yellow}} at the beginning of your response.
     """
