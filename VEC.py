@@ -41,7 +41,9 @@ def get_part_comparison(part1, part2):
 
 def evaluate_recommendation(text):
     text = text.lower()
-    if "these parts are suitable for substitution" in text or "can be used as a substitute" in text:
+    if "these parts are suitable for substitution" in text and "these parts are not suitable for substitution" in text:
+        return "yellow", "⚠️ Needs further review"
+    elif "these parts are suitable for substitution" in text or "can be used as a substitute" in text:
         return "green", "✅ Recommended substitute"
     elif "these parts are not suitable for substitution" in text or "cannot be used" in text:
         return "red", "❌ Not a valid substitute"
